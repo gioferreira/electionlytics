@@ -11,7 +11,7 @@ make_params_list <- function(terms,
   params_list <- rep(list(list()), n_params)
   for (i in 1:n_params) {
     params_list[[i]] <- list("terms" = terms, 
-                             "since" = since, 
+                             "since" = as.character(ymd(since) + days(i-1)), 
                              "until" = as.character(ymd(since) + days(i)), 
                              "save_to" = save_to)
   }
