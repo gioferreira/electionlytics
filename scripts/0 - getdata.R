@@ -1,6 +1,7 @@
 library(twitteR)
 library(tidyverse)
 library(skimr)
+library(tidytext)
 
 consumer_key <- read_rds("private_data/consumer_key.rds")
 consumer_secret <- read_rds("private_data/consumer_secret.rds")
@@ -43,3 +44,5 @@ haddad %>%
 
 bolsonaro %>%
   as.tibble() %>% skim
+
+
