@@ -6,9 +6,12 @@ library(lubridate)
 library(stringr)
 library(scales)
 
+col_names <- c("text", "favorited", "favoriteCount", "replyToSN", "created", "truncated", 
+               "replyToSID", "id", "replyToUID", "statusSource", "screenName", "retweetCount",
+               "isRetweet", "retweeted", "longitude", "latitude")
 
-haddad <- read_csv("data/haddad.csv")
-bolsonaro <- read_csv("data/bolsonaro.csv")
+haddad <- read_csv("data/haddad.csv", col_names = FALSE)
+bolsonaro <- read_csv("data/bolsonaro.csv", col_names = FALSE)
 
 haddad %>%
   as.tibble() %>% skim
