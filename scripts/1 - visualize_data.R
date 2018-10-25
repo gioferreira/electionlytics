@@ -11,7 +11,10 @@ col_names <- c("text", "favorited", "favoriteCount", "replyToSN", "created", "tr
                "isRetweet", "retweeted", "longitude", "latitude")
 
 haddad <- read_csv("data/haddad.csv", col_names = FALSE)
+names(haddad) <- col_names
+
 bolsonaro <- read_csv("data/bolsonaro.csv", col_names = FALSE)
+names(bolsonaro) <- col_names
 
 haddad %>%
   as.tibble() %>% skim
