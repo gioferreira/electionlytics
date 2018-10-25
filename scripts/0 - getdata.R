@@ -46,4 +46,7 @@ haddad %>%
 bolsonaro %>%
   as.tibble() %>% skim
 
-
+tweets <- bind_rows(haddad %>%
+                      mutate(person = "Haddad"),
+                    bolsonaro %>%
+                      mutate(person = "Bolsonaro"))
