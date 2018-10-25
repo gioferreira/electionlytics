@@ -51,11 +51,21 @@ since <- "2018-10-08"
 until <- "2018-10-24"
 save_to <- "data/haddad.csv"
 
+params_list <- make_params_list(terms = terms,
+                                since = since,
+                                until = until,
+                                save_to = save_to)
+
 map(params_list, extract_tweets)
 
 terms <- c("#bolsonaro17", "#elesim")
 since <- "2018-10-08"
 until <- "2018-10-24"
 save_to <- "data/bolsonaro.csv"
+
+params_list <- make_params_list(terms = terms,
+                                since = since,
+                                until = until,
+                                save_to = save_to)
 
 map(params_list, extract_tweets)
