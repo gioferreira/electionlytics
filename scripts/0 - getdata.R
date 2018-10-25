@@ -51,3 +51,9 @@ tweets <- bind_rows(haddad %>%
                       mutate(person = "Haddad"),
                     bolsonaro %>%
                       mutate(person = "Bolsonaro"))
+
+stop_words <- read_lines("data/final_stopwords.txt")
+stop_words_total <- unique(c(tm::stopwords('en'),
+                             tm::stopwords('SMART'),
+                             tm::stopwords('pt'),
+                             stop_words))
