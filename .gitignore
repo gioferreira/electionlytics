@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 private_data/
+data/
 .httr-oauth
