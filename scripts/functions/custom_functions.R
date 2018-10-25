@@ -26,7 +26,7 @@ extract_tweets <- function(params) {
   terms_search <- paste(terms, collapse = " OR ")
   
   search_result <- searchTwitter(terms_search, 
-                                 n = 3000, 
+                                 n = 1000, 
                                  lang = "pt", 
                                  since = since,
                                  until = until,
