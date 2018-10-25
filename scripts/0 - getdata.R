@@ -7,7 +7,7 @@ library(stringr)
 
 consumer_key <- read_rds("private_data/consumer_key.rds")
 consumer_secret <- read_rds("private_data/consumer_secret.rds")
-access_secret <- read_rds("private_data/access_secret.rds")
+access_token <- read_rds("private_data/access_token.rds")
 access_secret <- read_rds("private_data/access_secret.rds")
 
 setup_twitter_oauth(consumer_key = consumer_key, 
