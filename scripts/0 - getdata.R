@@ -10,15 +10,6 @@ setup_twitter_oauth(consumer_key = consumer_key,
                     consumer_secret = consumer_secret, 
                     access_token = access_token, 
                     access_secret = access_secret)
-terms <- c("#elenao", "#haddad13")
-since <- "2018-10-08"
-until <- "2018-10-24"
-save_to <- "data/haddad.csv"
-
-parameters <- list("terms" = terms, 
-                   "since" = since, 
-                   "until" = until, 
-                   "save_to" = save_to)
 
 make_params_list <- function(terms,
                              since,
@@ -55,15 +46,16 @@ extract_tweets <- function(params) {
   write_csv(search_result, save_to, append = TRUE)
 }
 
+terms <- c("#elenao", "#haddad13")
+since <- "2018-10-08"
+until <- "2018-10-24"
+save_to <- "data/haddad.csv"
+
+map(params_list, extract_tweets)
+
 terms <- c("#bolsonaro17", "#elesim")
-terms_search <- paste(terms, collapse = " OR ")
+since <- "2018-10-08"
+until <- "2018-10-24"
+save_to <- "data/bolsonaro.csv"
 
-bolsonaro <- searchTwitter(terms_search, 
-                           n = 3000, 
-                           lang = "pt", 
-                           since = "2018-10-08",
-                           until = "2018-10-09",
-                           retryOnRateLimit = 500)
-bolsonaro <- twListToDF(bolsonaro)
-
-write_csv(bolsonaro, "data/bolsonaro.csv", append = TRUE)
+map(params_list, extract_tweets)
