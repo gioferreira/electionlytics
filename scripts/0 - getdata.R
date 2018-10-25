@@ -15,9 +15,31 @@ setup_twitter_oauth(consumer_key = consumer_key,
 terms <- c("#elenao", "#haddad13")
 terms_search <- paste(terms, collapse = " OR ")
 
-haddad <- searchTwitter(terms_search, n=1000, lang="pt", since = "2018-10-07")
+haddad <- searchTwitter(terms_search, 
+                        n = 100000, 
+                        lang = "pt", 
+                        since = "2018-10-07",
+                        retryOnRateLimit = 500)
+
 haddad <- twListToDF(haddad)
+
+write_csv(haddad, "data/haddad.csv", append = TRUE)
+
+terms <- c("#bolsonaro17", "#elesim")
+terms_search <- paste(terms, collapse = " OR ")
+
+bolsonaro <- searchTwitter(terms_search, 
+                           n = 100000, 
+                           lang = "pt", 
+                           since = "2018-10-07",
+                           retryOnRateLimit = 500)
+bolsonaro <- twListToDF(bolsonaro)
+
+write_csv(bolsonaro, "data/bolsonaro.csv", append = TRUE)
+
 
 haddad %>%
   as.tibble() %>% skim
 
+bolsonaro %>%
+  as.tibble() %>% skim
