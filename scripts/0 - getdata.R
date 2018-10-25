@@ -13,7 +13,7 @@ setup_twitter_oauth(consumer_key = consumer_key,
 
 
 terms <- c("#elenao", "#haddad13")
-since <- "2018-08-31"
+since <- "2018-10-18"
 until <- "2018-10-25"
 save_to <- "data/haddad.csv"
 
@@ -25,7 +25,7 @@ params_list <- make_params_list(terms = terms,
 map(params_list, extract_tweets)
 
 terms <- c("#bolsonaro17", "#elesim")
-since <- "2018-08-31"
+since <- "2018-10-18"
 until <- "2018-10-25"
 save_to <- "data/bolsonaro.csv"
 
