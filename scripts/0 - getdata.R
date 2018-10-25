@@ -22,7 +22,7 @@ make_params_list <- function(terms,
   for (i in 1:n_params) {
     params_list[[i]] <- list("terms" = terms, 
                            "since" = since, 
-                           "until" = ymd(since) + days(i), 
+                           "until" = as.character(ymd(since) + days(i)), 
                            "save_to" = save_to)
   }
   return(params_list)
@@ -42,8 +42,10 @@ extract_tweets <- function(params) {
                                  until = until,
                                  retryOnRateLimit = 500)
   
-  search_result <- twListToDF(search_result)
-  write_csv(search_result, save_to, append = TRUE)
+  if (length(search_result) != 0){
+    search_result <- twListToDF(search_result)
+    write_csv(search_result, save_to, append = TRUE)
+  }
 }
 
 terms <- c("#elenao", "#haddad13")
