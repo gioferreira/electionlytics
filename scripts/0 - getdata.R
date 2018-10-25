@@ -3,6 +3,7 @@ library(tidyverse)
 library(skimr)
 library(tidytext)
 library(lubridate)
+library(stringr)
 
 consumer_key <- read_rds("private_data/consumer_key.rds")
 consumer_secret <- read_rds("private_data/consumer_secret.rds")
