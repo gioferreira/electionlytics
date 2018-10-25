@@ -56,7 +56,8 @@ frequency <- frequency %>%
   spread(person, freq) %>%
   arrange(Bolsonaro, Haddad)
 
-ggplot(frequency, aes(Bolsonaro, Haddad)) +
+frequency %>%
+  ggplot(aes(Bolsonaro, Haddad)) +
   geom_jitter(alpha = 0.1, size = 2.5, width = 0.25, height = 0.25) +
   geom_text(aes(label = word), check_overlap = TRUE, vjust = 1.5) +
   scale_x_log10(labels = percent_format()) +
@@ -66,6 +67,7 @@ ggplot(frequency, aes(Bolsonaro, Haddad)) +
 
 word_ratios <- tidy_tweets %>%
   filter(!str_detect(word, "^@")) %>%
+  # filter(!str_detect(word, "^#")) %>%
   count(word, person) %>%
   group_by(word) %>%
   filter(sum(n) >= 10) %>%
