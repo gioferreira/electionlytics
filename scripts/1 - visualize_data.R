@@ -1,3 +1,10 @@
+library(twitteR)
+library(tidyverse)
+library(skimr)
+library(tidytext)
+library(lubridate)
+library(stringr)
+library(scales)
 
 
 haddad <- read_csv("data/haddad.csv")

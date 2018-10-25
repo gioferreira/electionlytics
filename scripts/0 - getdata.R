@@ -1,10 +1,5 @@
 library(twitteR)
 library(tidyverse)
-library(skimr)
-library(tidytext)
-library(lubridate)
-library(stringr)
-library(scales)
 
 consumer_key <- read_rds("private_data/consumer_key.rds")
 consumer_secret <- read_rds("private_data/consumer_secret.rds")
@@ -20,9 +15,10 @@ terms <- c("#elenao", "#haddad13")
 terms_search <- paste(terms, collapse = " OR ")
 
 haddad <- searchTwitter(terms_search, 
-                        n = 100000, 
+                        n = 3000, 
                         lang = "pt", 
-                        since = "2018-10-07",
+                        since = "2018-10-08",
+                        until = "2018-10-09",
                         retryOnRateLimit = 500)
 
 haddad <- twListToDF(haddad)
@@ -33,9 +29,10 @@ terms <- c("#bolsonaro17", "#elesim")
 terms_search <- paste(terms, collapse = " OR ")
 
 bolsonaro <- searchTwitter(terms_search, 
-                           n = 100000, 
+                           n = 3000, 
                            lang = "pt", 
-                           since = "2018-10-07",
+                           since = "2018-10-08",
+                           until = "2018-10-09",
                            retryOnRateLimit = 500)
 bolsonaro <- twListToDF(bolsonaro)
 
